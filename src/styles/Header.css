@@ -1,0 +1,12 @@
+.custom-appbar{
+    color: #000 !important;
+    background-color: #ffffff00 !important;
+}
+
+.logo-image{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
