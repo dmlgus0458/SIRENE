@@ -1,12 +1,92 @@
-.custom-appbar{
-    color: #000 !important;
-    background-color: #ffffff00 !important;
+@font-face {
+    font-family: 'Nav-Font';
+    src: url('../font/EBGaramond-Italic.ttf') format('truetype');
 }
 
-.logo-image{
-    width: 100px;
-    height: 100px;
+@font-face {
+    font-family: 'SubNav-Font';
+    src: url('../font/EBGaramond-Bold.ttf') format('truetype');
+}
+
+.app-bar {
+    height: 260px;
+    margin-bottom: 2px;
+}
+
+.toolbar {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.logo-box {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center; 
+}
+
+.logo-icon {
+    width: 150px; 
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.nav-icons {
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+}
+
+.navigation {
+    margin-top: 180px;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-item-container {
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.nav-item-link {
+    text-decoration: none;
+    color: black;
+    font-family: Nav-Font;
+    margin: 10px;
+}
+
+.nav-item-link:hover {
+    color: #03020264; 
+    transition: 500ms;
+}
+
+.sub-nav-container {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.sub-nav-item {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+    font-size: 1rem;
+    font-family: SubNav-Font;
+
+}
+
+.sub-nav-item:hover {
+    color: #03020264; 
+    transition: 500ms;
+    text-decoration: underline;
 }
