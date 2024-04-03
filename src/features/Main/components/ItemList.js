@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Grid, Card, CardContent, Typography, Button } from '@mui/material';
+import { Container, Grid, Card, Typography, Button } from '@mui/material';
 import TopButton from '../../../images/btn-top.png';
 import WonSymbol from '../../../images/symbol-won.png';
 import CustomImage1 from '../../../images/product/product-earing-1.jpg';
@@ -52,7 +52,7 @@ const ItemList = () => {
                             <Grid key={index} item xs={12} sm={6} md={3}>
                                 <Card className="item-card">
                                     <div className="item-image">
-                                        <img src={image} alt={`Custom Image ${index + 1}`} />
+                                        <img src={image} alt={`Custom ${index + 1}`} />
                                     </div>
                                 </Card>
                                 <div className="item-info">
@@ -64,7 +64,7 @@ const ItemList = () => {
                                         {itemInfoList[index].category}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        <img src={WonSymbol} alt="symbol" className="symbol-won" />
+                                        <img src={WonSymbol} alt="Symbol" className="symbol-won" />
                                         {itemInfoList[index].price}
                                     </Typography>
                                 </div>
@@ -81,7 +81,7 @@ const ItemList = () => {
                             <Grid key={index} item xs={12} sm={6} md={3}>
                                 <Card className="item-card">
                                     <div className="item-image">
-                                        <img src={image} alt={`Custom Image ${index + 1}`} />
+                                        <img src={image} alt={`Custom ${index + 1}`} />
                                     </div>
                                 </Card>
                                 <div className="item-info">
@@ -93,7 +93,7 @@ const ItemList = () => {
                                         {itemInfoList[index].category}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        <img src={WonSymbol} alt="symbol" className="symbol-won" />
+                                        <img src={WonSymbol} alt="Symbol" className="symbol-won" />
                                         {itemInfoList[index].price}
                                     </Typography>
                                 </div>
@@ -105,7 +105,7 @@ const ItemList = () => {
 
             {showButton && (
                 <Button onClick={scrollToTop} className="scroll-top-button">
-                    <img src={TopButton} alt="top" />
+                    <img src={TopButton} alt="Back to Top" />
                 </Button>
             )}
         </Container>
