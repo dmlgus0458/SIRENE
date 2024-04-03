@@ -1,99 +1,114 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Fab from '@mui/material/Fab';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import Fade from '@mui/material/Fade';
-import { IconButton } from '@mui/material';
-import MenuIcon from '@mui/material/Menu';
+import React, { useState } from 'react';
+import { AppBar, Toolbar, IconButton, Box } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 import mainlogo from '../images/logo.png';
 
-function ScrollTop(props) {
-    const { children, window } = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
-    const trigger = useScrollTrigger({
-        target: window ? window() : undefined,
-        disableHysteresis: true,
-        threshold: 100,
-    });
+const Header = () => {
+    const [navItems] = useState([
+        {
+            to: '#',
+            label: 'HOME',
+        },
+        {
+            to: '#',
+            label: 'PRODUCT',
+            subNavItems: [
+                { to: '#', label: 'NEW' },
+                { to: '#', label: 'BEST' },
+                { to: '#', label: 'NECKLACE' },
+                { to: '#', label: 'NECKLACE' },
+                { to: '#', label: 'NECKLACE' },
+            ],
+        },
+        { to: '#', label: 'ETHICS' },
+        { to: '#', label: 'STORE' },
+        { to: '#', label: 'COMMUNITY' },
+    ]);
 
-    const handleClick = (event) => {
-        const anchor = (event.target.ownerDocument || document).querySelector(
-            '#back-to-top-anchor'
-        );
+    return (
+        <AppBar position="static" sx={{ backgroundColor: 'white' }} className="app-bar">
+            <Toolbar className="toolbar">
+                <Logo />
+                <NavIcons />
+                <Navigation navItems={navItems} />
+            </Toolbar>
+        </AppBar>
+    );
+};
 
-        if (anchor) {
-            anchor.scrollIntoView({
-                block: 'center',
-            });
-        }
+const Logo = () => {
+    return (
+        <Box className="logo-box">
+            <Link to="/" className="logo-link">
+                <img src={mainlogo} alt="Logo" className="logo-icon" />
+            </Link>
+        </Box>
+    );
+};
+
+const NavIcons = () => {
+    return (
+        <Box className="nav-icons">
+            <IconButton className="icon-button">
+                <SearchIcon />
+            </IconButton>
+            <IconButton className="icon-button">
+                <NotificationsIcon />
+            </IconButton>
+            <IconButton className="icon-button">
+                <MenuIcon />
+            </IconButton>
+        </Box>
+    );
+};
+
+const Navigation = ({ navItems }) => {
+    return (
+        <nav className="navigation">
+            {navItems.map((navItem, index) => (
+                <NavItem key={index} to={navItem.to} subNavItems={navItem.subNavItems}>
+                    {navItem.label}
+                </NavItem>
+            ))}
+        </nav>
+    );
+};
+
+const NavItem = ({ children, subNavItems, ...props }) => {
+    const [showSubNav, setShowSubNav] = useState(false);
+
+    const handleMouseEnter = () => {
+        setShowSubNav(true);
+    };
+
+    const handleMouseLeave = () => {
+        setShowSubNav(false);
     };
 
     return (
-        <Fade in={trigger}>
-            <Box
-                onClick={handleClick}
-                role="presentation"
-                sx={{ position: 'fixed', bottom: 16, right: 16 }}
-            >
+        <div
+            className="nav-item-container"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            <Link {...props} className="nav-item-link">
                 {children}
-            </Box>
-        </Fade>
+            </Link>
+            {showSubNav && subNavItems && (
+                <div className="sub-nav-container">
+                    {subNavItems.map((item, index) => (
+                        <Link key={index} to={item.to} className="sub-nav-item">
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+            )}
+        </div>
     );
-}
-
-ScrollTop.propTypes = {
-    children: PropTypes.element.isRequired,
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window: PropTypes.func,
 };
 
-export default function Header(props) {
-    return (
-        <React.Fragment>
-            <CssBaseline />
-            <AppBar position="static" className="custom-appbar">
-                <Toolbar>
-                    <img src={mainlogo} alt="Logo" className="logo-image" />
-                    <IconButton
-                        size="large"
-                        edge="end"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" component="div" className="nav-text">
-                        Home
-                    </Typography>
-                    <Typography variant="h6" component="div" className="nav-text">
-                        About
-                    </Typography>
-                    <Typography variant="h6" component="div" className="nav-text">
-                        Contact
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <Toolbar id="back-to-top-anchor" />
-
-            <ScrollTop {...props}>
-                <Fab size="small" aria-label="scroll back to top">
-                    <KeyboardArrowUpIcon />
-                </Fab>
-            </ScrollTop>
-        </React.Fragment>
-    );
-}
+export default Header;
