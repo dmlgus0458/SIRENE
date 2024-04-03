@@ -1,19 +1,17 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '../../../styles/Main.css';
 import MainSwiperImage from '../../../images/mainSwipe.png';
-// import required modules
+import MainSwiperImage2 from '../../../images/mainSwipe2.png';
 import { Pagination } from 'swiper/modules';
-import { Container } from '@mui/material';
+
+// 사용할 스타일 및 컴포넌트 임포트
 
 export default function MainSwiper() {
     return (
-        <Container maxWidth="xl">
+        <div className="full-width-container">
             <Swiper
                 pagination={{
                     dynamicBullets: true,
@@ -22,18 +20,18 @@ export default function MainSwiper() {
                 className="MainSwiper"
             >
                 <SwiperSlide>
-                    <img src={MainSwiperImage} />
+                    <img src={MainSwiperImage} alt="Main swiper" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                    <img src={MainSwiperImage2} alt="Main swiper" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                    <img src={MainSwiperImage} alt="Main swiper" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                    <img src={MainSwiperImage2} alt="Main swiper" />
                 </SwiperSlide>
             </Swiper>
-        </Container>
+        </div>
     );
 }
