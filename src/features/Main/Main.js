@@ -3,6 +3,8 @@ import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
 import MainSwiper from './components/MainSwiper';
 import ItemList from './components/ItemList';
+import InstagramList from './components/InstagramList';
+import CustomizeEvent from './components/CustomizeEvent';
 
 const Main = () => {
     return (
@@ -10,6 +12,8 @@ const Main = () => {
             <Header />
             <MainSwiper />
             <ItemList />
+            <CustomizeEvent />
+            <InstagramList />
             <Footer />
         </>
     );
