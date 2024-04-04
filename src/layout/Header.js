@@ -17,15 +17,16 @@ const Header = () => {
             to: '#',
             label: 'PRODUCT',
             subNavItems: [
-                { to: '#', label: 'NEW' },
                 { to: '#', label: 'BEST' },
                 { to: '#', label: 'NECKLACE' },
-                { to: '#', label: 'NECKLACE' },
-                { to: '#', label: 'NECKLACE' },
+                { to: '#', label: 'BRACELET' },
+                { to: '#', label: 'RING' },
+                { to: '#', label: 'JEWELRY' },
+                { to: '#', label: 'ETC' },
             ],
         },
         { to: '#', label: 'ETHICS' },
-        { to: '#', label: 'STORE' },
+        { to: '#', label: 'EVENTS' },
         { to: '#', label: 'COMMUNITY' },
     ]);
 
