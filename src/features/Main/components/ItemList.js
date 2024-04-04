@@ -11,10 +11,10 @@ import '../../../styles/ItemList.css';
 const ItemList = () => {
     const [imageList] = useState([CustomImage1, CustomImage2, CustomImage3, CustomImage4]);
     const [itemInfoList] = useState([
-        { category: 'Product Category 1', price: '10,000' },
-        { category: 'Product Category 2', price: '20,000' },
-        { category: 'Product Category 3', price: '30,000' },
-        { category: 'Product Category 4', price: '40,000' },
+        { category: 'Crystal balancing Earring', price: '70,000' },
+        { category: 'Two faces Earring', price: '60,000' },
+        { category: 'Bell shape Necklace', price: '120,000' },
+        { category: 'Bud Necklace', price: '90,000' },
     ]);
     const [showButton, setShowButton] = useState(false);
 
