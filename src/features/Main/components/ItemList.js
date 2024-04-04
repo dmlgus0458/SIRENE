@@ -11,10 +11,10 @@ import '../../../styles/ItemList.css';
 const ItemList = () => {
     const [imageList] = useState([CustomImage1, CustomImage2, CustomImage3, CustomImage4]);
     const [itemInfoList] = useState([
-        { category: 'Crystal balancing Earring', price: '70,000' },
-        { category: 'Two faces Earring', price: '60,000' },
-        { category: 'Bell shape Necklace', price: '120,000' },
-        { category: 'Bud Necklace', price: '90,000' },
+        { itemName: 'Crystal balancing Earring', price: '70,000' },
+        { itemName: 'Two faces Earring', price: '60,000' },
+        { itemName: 'Bell shape Necklace', price: '120,000' },
+        { itemName: 'Bud Necklace', price: '90,000' },
     ]);
     const [showButton, setShowButton] = useState(false);
 
@@ -59,9 +59,9 @@ const ItemList = () => {
                                     <Typography
                                         variant="subtitle1"
                                         component="h3"
-                                        className="product-category"
+                                        className="product-itemName"
                                     >
-                                        {itemInfoList[index].category}
+                                        {itemInfoList[index].itemName}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
                                         <img src={WonSymbol} alt="Symbol" className="symbol-won" />
@@ -88,9 +88,9 @@ const ItemList = () => {
                                     <Typography
                                         variant="subtitle1"
                                         component="h3"
-                                        className="product-category"
+                                        className="product-itemName"
                                     >
-                                        {itemInfoList[index].category}
+                                        {itemInfoList[index].itemName}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
                                         <img src={WonSymbol} alt="Symbol" className="symbol-won" />
