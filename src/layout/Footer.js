@@ -1,6 +1,6 @@
 // Footer.js
 import React from 'react';
-import { Container, Grid, Link, Typography } from '@mui/material';
+import { Container, Grid, Link } from '@mui/material';
 import { Facebook, Twitter, Instagram } from '@mui/icons-material';
 import '../styles/Footer.css';
 import mainlogo from '../images/logo.png';
