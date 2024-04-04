@@ -1,0 +1,67 @@
+.card-container {
+    border-top: 1px solid #ccc; /* 위 테두리 */
+    border-bottom: 1px solid #ccc; /* 아래 테두리 */
+    padding: 20px;
+    margin-top: 150px;
+}
+
+.card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-content {
+    max-width: 400px; /* 텍스트 내용 최대 너비 설정 */
+}
+
+.custom-image {
+    width: 100%;
+    max-width: 500px; /* 이미지 최대 너비 설정 */
+    padding: 30px;
+}
+
+.title {
+    margin-bottom: 10px;
+    font-family: Main-CutomizeEvent-Head-Font !important;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Main-CutomizeEvent-Description-Font !important;
+}
+
+.button {
+    margin: 30px 90px 0 90px !important;
+    font-family: Main-CutomizeEvent-Description-Font !important;
+    border-color: #7d7b7b !important;
+    color: #7d7b7b !important;
+}
+
+.button:hover{
+    color: #ffffff !important;
+    background-color: #7d7b7b !important;
+}
+
+
+@font-face {
+    font-family: 'Main-CutomizeEvent-Head-Font';
+    src: url('../font/EBGaramond-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Main-CutomizeEvent-Description-Font';
+    src: url('../font/EBGaramond-Bold.ttf') format('truetype');
+}
