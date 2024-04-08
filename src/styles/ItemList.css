@@ -1,8 +1,17 @@
+@font-face {
+    font-family: 'Main-Proudct-Head-Font';
+    src: url('../font/EBGaramond-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Main-Proudct-Categoty-Font';
+    src: url('../font/EBGaramond-Bold.ttf') format('truetype');
+}
+
 .Mainproduct{
     text-align: center;
     padding: 100px;
 }
-
 
 .item-image img{
     width: 100%;
@@ -30,16 +39,6 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-}
-
-@font-face {
-    font-family: 'Main-Proudct-Head-Font';
-    src: url('../font/EBGaramond-MediumItalic.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Main-Proudct-Categoty-Font';
-    src: url('../font/EBGaramond-Bold.ttf') format('truetype');
 }
 
 .Mainproduct{
