@@ -11,8 +11,6 @@ const InstagramList = () => {
 
     return (
         <Container maxWidth="lg" className="instagram-container">
-            {' '}
-            {/* className을 추가합니다. */}
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Typography variant="h3" className="Mainproduct">
@@ -21,14 +19,11 @@ const InstagramList = () => {
                     <Grid container spacing={4}>
                         {instaImageList.map((image, index) => (
                             <Grid key={index} item xs={12} sm={6} md={3}>
-                                <Paper
-                                    elevation={3}
-                                    className="photo-paper" // className을 추가합니다.
-                                >
+                                <Paper elevation={3} className="photo-paper">
                                     <img
                                         src={image}
                                         alt={`insta ${index + 1}`}
-                                        className="photo-image" // className을 추가합니다.
+                                        className="photo-image"
                                     />
                                 </Paper>
                             </Grid>

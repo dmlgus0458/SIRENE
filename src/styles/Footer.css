@@ -11,12 +11,6 @@
     margin-top: 150px;
 }
 
-.footer__container {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .footer__logo {
     display: flex;
     flex-direction: column;
