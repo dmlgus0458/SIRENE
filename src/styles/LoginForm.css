@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'Body-Font';
+    src: url('../font/EBGaramond-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Title-Font';
+    src: url('../font/EBGaramond-Regular.ttf') format('truetype');
+}
+
+.popup-title{
+    font-family: Title-Font !important;
+}
+
+.login-container {
+    min-height: 10vh;
+    padding: 1.5rem;
+}
+
+.input-container {
+    margin-bottom: 1.5rem;
+}
+
+.supporting-text {
+    font-size: 0.75rem;
+}
+
+.links > .link-text{
+    font-family: Title-Font !important;
+    color: black !important;
+    font-size: 1rem;
+}
+
+
+.login-button{
+    background-color: #ccc !important;
+    height: 6vh !important;
+    font-family: Body-Font !important;
+    font-size: 1.2rem !important;
+}
+
+
+.links > a:not(:last-child)::after {
+    content: '|';
+    margin: 0 0.5rem;
+    color: #666;
+}
+
+.social-login-icon {
+    font-size: 2.75rem !important; 
+    margin: 0 1.5rem; 
+    cursor: pointer;
+}
