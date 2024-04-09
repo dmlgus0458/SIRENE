@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Box } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Toolbar, IconButton, Box, InputBase } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 import mainlogo from '../images/logo.png';
+import PersonIcon from '@mui/icons-material/Person';
+import LoginPopup from '../features/Login/LoginPopup';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const Header = () => {
     const [navItems] = useState([
@@ -30,12 +32,45 @@ const Header = () => {
         { to: '#', label: 'COMMUNITY' },
     ]);
 
+    const [openPopup, setOpenPopup] = useState(false);
+    const [searchMode, setSearchMode] = useState(false);
+
+    const handleOpenPopup = () => {
+        setOpenPopup(true);
+    };
+
+    const handleClosePopup = () => {
+        setOpenPopup(false);
+    };
+
+    const handleSearchIconClick = () => {
+        setSearchMode(true);
+    };
+
+    const handleCancelSearch = () => {
+        setSearchMode(false);
+    };
+
+    const handleSearch = () => {
+        console.log('검색이 실행됩니다.');
+    };
+
     return (
         <AppBar position="static" sx={{ backgroundColor: 'white' }} className="app-bar">
             <Toolbar className="toolbar">
-                <Logo />
-                <NavIcons />
-                <Navigation navItems={navItems} />
+                {!searchMode ? (
+                    <>
+                        <Logo />
+                        <NavIcons
+                            handleOpenPopup={handleOpenPopup}
+                            handleSearchIconClick={handleSearchIconClick}
+                        />
+                        <LoginPopup open={openPopup} handleClose={handleClosePopup} />
+                        <Navigation navItems={navItems} />
+                    </>
+                ) : (
+                    <SearchBar onCancelSearch={handleCancelSearch} onSearch={handleSearch} />
+                )}
             </Toolbar>
         </AppBar>
     );
@@ -51,17 +86,17 @@ const Logo = () => {
     );
 };
 
-const NavIcons = () => {
+const NavIcons = ({ handleOpenPopup, handleSearchIconClick }) => {
     return (
         <Box className="nav-icons">
-            <IconButton className="icon-button">
+            <IconButton className="icon-button" onClick={handleSearchIconClick}>
                 <SearchIcon />
             </IconButton>
             <IconButton className="icon-button">
                 <NotificationsIcon />
             </IconButton>
-            <IconButton className="icon-button">
-                <MenuIcon />
+            <IconButton className="icon-button" onClick={handleOpenPopup}>
+                <PersonIcon />
             </IconButton>
         </Box>
     );
@@ -109,6 +144,25 @@ const NavItem = ({ children, subNavItems, ...props }) => {
                 </div>
             )}
         </div>
+    );
+};
+
+const SearchBar = ({ onCancelSearch, onSearch }) => {
+    return (
+        <Box className="search-bar-container">
+            <InputBase
+                className="search-input"
+                placeholder="Search"
+                endAdornment={
+                    <IconButton className="search-icon" onClick={onSearch}>
+                        <SearchIcon />
+                    </IconButton>
+                }
+            />
+            <IconButton className="cancel-search-button" onClick={onCancelSearch}>
+                <CancelIcon />
+            </IconButton>
+        </Box>
     );
 };
 

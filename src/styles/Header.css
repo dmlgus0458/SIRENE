@@ -90,3 +90,22 @@
     transition: 500ms;
     text-decoration: underline;
 }
+
+.search-bar-container {
+    height: 100%;
+}
+
+.search-input {
+    background-color: white;
+    border: #000000 2px solid;
+    border-radius: 0.25rem;
+    padding: 0 1rem;
+    width: 40vw;
+    margin-top: 15vh;
+    font-family: SubNav-Font !important;
+}
+
+.search-input > .search-icon {
+    left: 1vw;
+}
+
