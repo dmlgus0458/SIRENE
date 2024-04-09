@@ -9,21 +9,19 @@ import { Pagination } from 'swiper/modules';
 
 export default function MainSwiper() {
     return (
-        <div className="full-width-container">
-            <Swiper
-                pagination={{
-                    dynamicBullets: true,
-                }}
-                modules={[Pagination]}
-                className="MainSwiper"
-            >
-                <SwiperSlide>
-                    <img src={MainSwiperImage} alt="Main swiper" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={MainSwiperImage2} alt="Main swiper" />
-                </SwiperSlide>
-            </Swiper>
-        </div>
+        <Swiper
+            pagination={{
+                dynamicBullets: true,
+            }}
+            modules={[Pagination]}
+            className="MainSwiper"
+        >
+            <SwiperSlide>
+                <img src={MainSwiperImage} alt="Main swiper" />
+            </SwiperSlide>
+            <SwiperSlide>
+                <img src={MainSwiperImage2} alt="Main swiper" />
+            </SwiperSlide>
+        </Swiper>
     );
 }
